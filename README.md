@@ -1,1 +1,1 @@
-# CS-4523-Senior-Design
+# AppSec Django Project
