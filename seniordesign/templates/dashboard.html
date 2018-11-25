@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div class="container">
+    <div class="row" style="margin-top:150px;" >
+        <div class="col">
+            <div style = "color:#439DBB;text-align: center;">
+                <a class ="main_page" href =  "/seniordesign/interests">
+                <img src = "{% static "seniordesign/logo.png" %}" height="auto" width="auto">
+                    <div style = "margin-top:50px;">
+                        <h3>My Interests</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    
+        <div class="col" >
+            <div style = "color:#439DBB;text-align: center;">
+                <a class ="main_page" href =  "/explore">
+                    <img src = "{% static "seniordesign/logo.PNG" %}" height="auto" width="auto">
+                    <div style = "margin-top:50px;">
+                        <h3>Explore</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col" >
+            <div style = "color:#439DBB;text-align: center;">
+                <a class ="main_page" href =  "/events_near_me">
+                    <img src = "{% static "seniordesign/logo.png" %}" height="auto" width="auto">
+                    <div style = "margin-top:50px;">
+                        <h3>Events Near Me</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock  %}
+    
+    
