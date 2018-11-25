@@ -1,0 +1,130 @@
+% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+    <body>
+   
+        <div class = "jumbotron" style="background-color: #439DBB0A;margin-bottom:0px;">
+            <h1 class = "welcome_splash">welcome to unijive!</h1>
+        </div>
+
+        <div style = "background-color:#439DBB0A;width:50%;margin:auto;border-radius:5px;">
+            <form method = "POST" action="{% url 'login' %}" > {% csrf_token %}
+        <div class = "container" style="margin-bottom:10px;clear:left;text-align:center;">
+            <div class = "form-label" style="color:white;font-family: 'CaviarDreams';">
+                    {{ form.username.label_tag }}
+            </div>
+            <div  style = "width:100%;max-width:300px;border-radius:15px;background-color:#439DBB9F;color:white;text-align:center;margin-left:25%;">{{ form.username | add_class:"main_pageLoginInput" }}</div>
+            
+           <!-- <input type = "email"  name= "emailAddress" style = "width:100%;max-width:300px;border-radius:15px;background-color:#439DBB9F;color:white;">-->
+                
+        </div>
+        
+        <div class = "container" style="margin-bottom:10px;clear:left;text-align:center;">
+            <div class = "form-label" style="color:white;font-family: 'CaviarDreams';">
+                    {{ form.password.label_tag }}
+            </div>
+            
+           <div style = "width:100%;max-width:300px;border-radius:15px;background-color:#439DBB9F;color:white;margin-left:25%;">{{ form.password | add_class:"main_pageLoginInput" }}</div>
+             <!-- <input type = "password" name = "password" style = "width:100%;max-width:300px;border-radius:15px;background-color:#439DBB9F;color:white;"> -->
+                
+        </div>
+            
+
+            <div style="text-align:center;">
+                <div style = "margin-bottom:10px;">
+                <button type= "submit" class="btn btn-link" style="color:white;  border:1px solid; border-radius: 15px;font-family: 'CaviarDreams';">Login</button>
+                <input type="hidden" name="next" value="/logged_in/" />
+                </div>
+                <a id = "forgotPassword" class= "main_page" style="color:white;font-family: 'CaviarDreams';">Forgot your password?</a><br>
+                <a id = "createAccount" class= "main_page" data-toggle = "modal" data-target="#myModal" style="color:white;font-family: 'CaviarDreams';">Don't have an account? Create one right now!</a>
+            </div>
+        </form>
+        </div>
+        
+
+        
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form method = "POST" name="registration" onsubmit="return formValidation();"> {% csrf_token %}
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" >Creating an Account is Easy!</h5>
+                        
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p style = "text-align:center;">Step 1: Let us know a bit about yourself!</p>
+                        <div class="form-group">
+                            <div class = "row">
+                                <div style ="float:left;padding:10px;width:50%;">
+                                    <label label-default="" for="Fname" class="col-sm-6"> First Name:</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" id="Fname" name="firstName" placeholder="First Name" required  >
+                                </div>
+                                
+                                </div>
+                            <div style = "float:right;padding:10px;width:50%;">
+                                <label label-default="" for="Lname" class="col-sm-6" > Last Name:</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" id="Lname" name="lastName" placeholder="Last Name" required>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label label-default="" for="school" class="col-sm-12"> School/University:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="school" name="university" placeholder="School/University" required>
+                                    </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label label-default="" for="email" class="col-sm-12"> Email Address:</label>
+                            <div class="col-sm-12">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="example@university.edu" required>
+                                </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label label-default="" for="username" class="col-sm-12"> Username:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                                    </div>
+                        </div>
+                        <div class="form-group">
+                            <label label-default="" for="password" class="col-sm-12">Enter a Password:</label>
+                            <div class="col-sm-12">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="" required>
+                                    </div>
+                        </div>
+                        <div class="form-group">
+                            <label label-default="" for="confirmPass" class="col-sm-12">Confirm Password:</label>
+                            <div class="col-sm-12">
+                                <input type="password" class="form-control" id="confirmPass" name="confirmPass" placeholder="" required>
+                                    </div>
+                        </div>
+
+
+
+                    </div>
+                
+                    <div class="modal-footer">
+                        <button id="registerBtn" type="submit" class="btn btn-primary" >Next Step!</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+{% endblock  %}
+
