@@ -15,14 +15,14 @@ class UserAdminCreationForm(forms.ModelForm):
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ('email',)
 
     #This function not here originally, added!
     def clean_email(self):
         #Check that the e-mail is not already taken
         email = self.cleaned_data.get('email')
-        qs = User.objects.filter(email=email)
+        qs = CustomUser.objects.filter(email=email)
         if qs.exists():
             raise forms.ValidationError("email is taken")
         return email
@@ -51,7 +51,7 @@ class UserAdminChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField()
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ('email', 'password', 'active', 'admin')
 
     def clean_password(self):

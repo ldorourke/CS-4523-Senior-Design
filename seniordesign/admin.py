@@ -10,7 +10,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 
 from .forms import UserAdminChangeForm, UserAdminCreationForm
-from .models import UserProfile
+from .models import UserProfile, CustomUser
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -63,7 +63,7 @@ class UserAdmin(BaseUserAdmin):
 
 
 # Register your models here.
-admin.site.register(User, UserAdmin)
+admin.site.register(CustomUser, UserAdmin)
 
 # Unregister your models here. 
 admin.site.unregister(Group)       #Not Using this model ... yet?

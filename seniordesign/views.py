@@ -4,7 +4,7 @@ from django.core.mail               import EmailMessage
 from django.shortcuts               import redirect, render
 from django.template                import loader
 from django                         import forms
-from seniordesign.models            import User, UserProfile, UserManager
+from seniordesign.models            import CustomUser, UserProfile, UserManager
 
 from django.views                   import View
 from django.views.generic           import TemplateView, ListView, DetailView, CreateView

@@ -51,7 +51,7 @@ class UserManager(BaseUserManager):
 
 
 #customUser not standard django User class
-class User(AbstractBaseUser):
+class CustomUser(AbstractBaseUser):
     email           = models.EmailField(max_length= 255, unique =True, default = "example@nyu.edu")
     active          = models.BooleanField(default= True)
     staff           = models.BooleanField(default = False)
@@ -101,7 +101,7 @@ class User(AbstractBaseUser):
 
 #Custom User basic profile
 class UserProfile(models.Model):
-    user            = models.OneToOneField(User, on_delete=models.CASCADE,)
+    user      		= models.OneToOneField(CustomUser, on_delete=models.CASCADE,)
     firstName       = models.CharField(max_length = 30)
     lastName        = models.CharField(max_length = 30)
     username        = models.CharField(max_length = 30)
