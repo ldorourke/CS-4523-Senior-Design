@@ -2,6 +2,7 @@ from django.shortcuts import render
 from faker import Factory
 from django.http import JsonResponse
 from django.conf import settings
+from seniordesign.models import CustomUser
 
 from twilio.rest import Client
 from twilio.jwt.access_token import AccessToken
@@ -15,6 +16,7 @@ def app(request):
 
 def token(request):
     fake = Factory.create()
+    print(fake.user_name())
     return generateToken(fake.user_name())
 
 def generateToken(identity):

@@ -46,10 +46,7 @@ $(function() {
   $.getJSON('/token', {
     device: 'browser'
   }, function(data) {
-    // Alert the user they have been assigned a random username
     username = data.identity;
-    print('You have been assigned a random username of: '
-    + '<span class="me">' + username + '</span>', true);
 
     // Initialize the Chat client
     Twilio.Chat.Client.create(data.token).then(client => {
@@ -59,9 +56,7 @@ $(function() {
   });
 
   function createOrJoinGeneralChannel() {
-    // Get the general chat channel, which is where all the messages are
-    // sent in this simple application
-    print('Attempting to join "general" chat channel...');
+    print('Attempting to join "uConnect" chat channel...');
     chatClient.getChannelByUniqueName('general')
     .then(function(channel) {
       generalChannel = channel;
@@ -70,10 +65,10 @@ $(function() {
       setupChannel();
     }).catch(function() {
       // If it doesn't exist, let's create it
-      console.log('Creating general channel');
+      console.log('Creating uConnect channel');
       chatClient.createChannel({
-        uniqueName: 'general',
-        friendlyName: 'General Chat Channel'
+        uniqueName: 'uConnect',
+        friendlyName: 'uConnect Chat Channel'
       }).then(function(channel) {
         console.log('Created general channel:');
         console.log(channel);
