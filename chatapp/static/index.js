@@ -57,7 +57,7 @@ $(function() {
 
   function createOrJoinGeneralChannel() {
     print('Attempting to join "uConnect" chat channel...');
-    chatClient.getChannelByUniqueName('general')
+    chatClient.getChannelByUniqueName('uConnect')
     .then(function(channel) {
       generalChannel = channel;
       console.log('Found general channel:');

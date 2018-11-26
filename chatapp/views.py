@@ -15,9 +15,8 @@ def app(request):
     return render(request, 'chat.html')
 
 def token(request):
-    fake = Factory.create()
-    print(fake.user_name())
-    return generateToken(fake.user_name())
+    if request.user.is_authenticated:
+        return generateToken(str(request.user))
 
 def generateToken(identity):
     # Get credentials from environment variables
