@@ -22,5 +22,7 @@ from seniordesign import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('', include('seniordesign.urls')),
+    path(r'', include('chatapp.urls')),
     url('index/$', views.index),
+
 ]
