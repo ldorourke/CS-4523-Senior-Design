@@ -24,7 +24,7 @@ def dashboard(request):
     return render(request, 'dashboard.html', {'header': site_hdr})
 
 def interests(request):
-    return render(request, 'interests.html', {'header': site_hdr})
+    return render(request, 'search_interests.html', {'header': site_hdr})
 
 def logout_view(request):
     logout(request)
