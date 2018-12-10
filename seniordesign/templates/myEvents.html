@@ -1,0 +1,23 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img class="image-two image-border" src="{% static "seniordesign/logo.png" %}" height="10%" width="auto" />
+        </div>
+        <!-- list of reasons I love Ami here -->
+        <div class="col-xs-9 col-sm-9 col-md-9 list-background">
+          <p> Reasons I love her: </p>
+          <ul>
+            <li> She is filled with love </li>
+            <li> Her beautiful eyes </li>
+            <li> Her lust for life </li>
+            <li> The way she loves me </li>
+          </ul>
+        </div>
+</div>
+      
+{% endblock content %}

@@ -4,7 +4,7 @@ from django.conf.urls import url
 from . import views
 from django.contrib.auth.views import LoginView
 
-from seniordesign.views import (index, logout_view, userCreate)
+from seniordesign.views import * #(index, logout_view, userCreate)
 
 
 app_name = 'seniordesign'
@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^register/$', userCreate ,name ="register"),
     url(r'^createEvent/$', userCreate ,name ="createEvent"),
     url(r'^viewEvent/$', userCreate ,name ="viewEvent"),
-    url(r'^interests/*$', views.interests, name='interests'),
+    url(r'^myEvents/*$', views.myEvents, name='myEvents'),
                
                
     #The next two need their template names, add the names after the html files are added to proj

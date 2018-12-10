@@ -23,8 +23,8 @@ def index(request):
 def dashboard(request):
     return render(request, 'dashboard.html', {'header': site_hdr})
 
-def interests(request):
-    return render(request, 'search_interests.html', {'header': site_hdr})
+def myEvents(request):
+    return render(request, 'myEvents.html', {'header': site_hdr})
 
 def logout_view(request):
     logout(request)
