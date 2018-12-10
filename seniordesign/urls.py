@@ -15,11 +15,13 @@ urlpatterns = [
     url(r'^login/$', LoginView.as_view(template_name = "home_logged_out copy.html",
                                        redirect_field_name = "/logged_in"), name='login'),
     url(r'^homePage/*$', views.dashboard, name='homePage'),
+    url(r'^myEvents/*$', views.myEvents, name='myEvents'),
+    url(r'^explore/*$', views.explore, name='explore'),
+               
     url(r'^editProfile/*$', views.dashboard, name='editProfile'),
     url(r'^register/$', userCreate ,name ="register"),
     url(r'^createEvent/$', userCreate ,name ="createEvent"),
     url(r'^viewEvent/$', userCreate ,name ="viewEvent"),
-    url(r'^myEvents/*$', views.myEvents, name='myEvents'),
                
                
     #The next two need their template names, add the names after the html files are added to proj

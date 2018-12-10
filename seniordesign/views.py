@@ -26,6 +26,9 @@ def dashboard(request):
 def myEvents(request):
     return render(request, 'myEvents.html', {'header': site_hdr})
 
+def explore(request):
+    return render(request, 'explore.html', {'header': site_hdr})
+
 def logout_view(request):
     logout(request)
     return redirect('login')

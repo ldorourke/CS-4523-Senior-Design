@@ -1,0 +1,86 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container">
+        <div class="row" style="margin-top:150px;" >
+            <div class="col">
+                <div style = "color:#439DBB;text-align: center;">
+                    <a class ="main_page" href =  "/myEvents">
+                    <img src = "{% static "seniordesign/logo.png" %}" height="auto" width="auto">
+                        <div style = "margin-top:50px;">
+                            <h3>Event 1 Near me</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        
+            <div class="col" >
+                <div style = "color:#439DBB;text-align: center;">
+                    <a class ="main_page" href =  "/explore">
+                        <img src = "{% static "seniordesign/logo.PNG" %}" height="auto" width="auto">
+                        <div style = "margin-top:50px;">
+                            <h3>Event 2 Near Me</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col" >
+                <div style = "color:#439DBB;text-align: center;">
+                    <a class ="main_page" href =  "/events_near_me">
+                        <img src = "{% static "seniordesign/logo.png" %}" height="auto" width="auto">
+                        <div style = "margin-top:50px;">
+                            <h3>Event 3 near me</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "container">
+            <table class="table" style = "background-color:white;">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Distance</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Event Name</th>
+                        <th scope="col">Hosted By: </th>
+                        <th scope="col">Tags: </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>2.1 mi away</td>
+                        <td>Brooklyn, NY</td>
+                        <td>Cyphs</td>
+                        <td>420 blaziken</td>
+                        <td>Cyphs</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>2.1 mi away</td>
+                        <td>Brooklyn, NY</td>
+                        <td>Cyphs</td>
+                        <td>420 blaziken</td>
+                        <td>Cyphs</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>2.1 mi away</td>
+                        <td>Brooklyn, NY</td>
+                        <td>Cyphs</td>
+                        <td>420 blaziken</td>
+                        <td>Cyphs</td>
+                      </tr>
+                    </tbody>
+                  </table>
+    </div>
+
+
+
+{% endblock content %}

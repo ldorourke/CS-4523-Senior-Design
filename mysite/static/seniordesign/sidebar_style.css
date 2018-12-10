@@ -140,6 +140,28 @@ a.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
 }
+table, th, td {
+    margin: .4em 2.5em .4em 2.5em;
+    font-size: 1em;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 1em;
+}
+
+th {
+    background: white;
+}
+
+th.table-head {
+    background: white;
+}
+
+td {
+    background: white;
+}
 
 /* ---------------------------------------------------
     CONTENT STYLE
