@@ -116,6 +116,7 @@ class UserProfile(models.Model):
         ('Senior', 'Senior'),
     )
     year_in_school = models.CharField(max_length=15, choices=YEAR_IN_SCHOOL_CHOICES, default='Freshman',)
+    myEvents            = models.ManyToManyField(EventProfile)
 
     
 class EventProfile(models.Model):
@@ -127,4 +128,8 @@ class EventProfile(models.Model):
     Host                = models.CharField(max_length = 30)
     Location            = models.CharField(max_length = 30)
     distanceFromUser    = models.CharField(max_length = 30)
+    attandees           = models.ManyToManyField(UserProfile)
+
+    
+
 
