@@ -16,14 +16,28 @@ from django.db.models               import Q
 from django.contrib                 import messages
 from django.http                    import HttpResponse, HttpResponseRedirect,HttpRequest
 
-site_hdr = "Senior Design"
+site_hdr = "uConnect"
 
 class createEventView(TemplateView):
-    template_name = 'createEvent.html'
-
+    def __init__(self):
+        self.template_name= 'createEvent.html'
+    
     def get(self, request):
         form = createEventForm()
-        
+        return render(request, self.template_name, {'form' : form})
+
+    def post(self, request):
+        form = createEventForm(request.POST)
+        if form.is_valid():
+            form.save()
+            text = form.cleaned_data['post']
+            form = createEventForm()
+            return redirect('seniordesign:createEvent')
+
+        args = {'form':form, 'text': text}
+        return render(request, self.template_name, args)
+
+
 
 def index(request):
     return render(request, 'index.html', {'header': site_hdr})
@@ -37,8 +51,8 @@ def myEvents(request):
 def explore(request):
     return render(request, 'explore.html', {'header': site_hdr})
 
-def createEvent(request):
-    return render(request, 'createEvent.html', {'header': site_hdr})
+def viewEvent(request):
+    return render(request, 'viewEvent.html', {'header': site_hdr})
 
 def logout_view(request):
     logout(request)

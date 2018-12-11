@@ -20,8 +20,8 @@ urlpatterns = [
                
     url(r'^editProfile/*$', views.dashboard, name='editProfile'),
     url(r'^register/$', userCreate ,name ="register"),
-    url(r'^createEvent/$', views.createEvent ,name ="createEvent"),
-    url(r'^viewEvent/$', userCreate ,name ="viewEvent"),
+    url(r'^createEvent/$', views.createEventView.as_view() ,name ="createEvent"),
+    url(r'^viewEvent/$', views.viewEvent ,name ="viewEvent"),
                
                
     #The next two need their template names, add the names after the html files are added to proj

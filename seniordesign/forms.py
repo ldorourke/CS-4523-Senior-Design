@@ -11,7 +11,7 @@ User = get_user_model()
 class createEventForm(forms.ModelForm):
     class Meta:
         model = EventProfile
-        fields = ('date', 'time', 'Location', 'tags', 'Eventname', 'Host','Location', 'distanceFromUser')
+        fields = ('date', 'time', 'Location', 'tags', 'Eventname', 'Host','Location',)
 
 
 
