@@ -120,7 +120,7 @@ class UserProfile(models.Model):
     
 class EventProfile(models.Model):
     date                = models.DateField(default=datetime.date.today)
-    tcontact_time       = models.TimeField(default=datetime.time)
+    time                = models.TimeField(default=datetime.time)
     Location            = models.CharField(max_length = 30)
     tags                = models.CharField(max_length = 50)
     Eventname           = models.CharField(max_length = 30)

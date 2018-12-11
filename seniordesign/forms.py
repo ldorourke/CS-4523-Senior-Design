@@ -8,7 +8,10 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
-#class createEventForm(forms.Form):
+class createEventForm(forms.ModelForm):
+    class Meta:
+        model = EventProfile
+        fields = ('date', 'time', 'Location', 'tags', 'Eventname', 'Host','Location', 'distanceFromUser')
 
 
 
