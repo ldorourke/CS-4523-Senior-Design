@@ -26,7 +26,9 @@ urlpatterns = [
     url(r'^viewEvent/$', views.viewEvent ,name ="viewEvent"),
     
     url(r'^updateProfile/$', views.editUser, name='updateProfile'),           
-    url(r'^viewProfile/$', views.dashboard, name='viewProfile'),
+
+    url(r'^viewProfile/$', views.viewProfile, name='viewProfile'),           
+
                
     #The next two need their template names, add the names after the html files are added to proj
     

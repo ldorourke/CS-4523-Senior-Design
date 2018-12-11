@@ -1,3 +1,7 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
 {% load material_form %}
 <!-- Material form is just a materialize thing for django forms -->
 <div class="col s12 m8 offset-m2">
@@ -9,10 +13,12 @@
             <div class="divider"></div>
             {{ formset.management_form }}
                 {{ formset.as_p }}
-            <button type="submit" class="btn-floating btn-large waves-light waves-effect"><i class="large material-icons">done</i></button>
+            <button type="submit" class="btn-floating btn-large waves-light waves-effect"><i class="large material-icons">Done</i></button>
 
 
         </form>
         </div>
     </div>
 </div>
+
+{% endblock content %}

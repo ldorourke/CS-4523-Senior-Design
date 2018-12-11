@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import *
+from seniordesign.models import *
 
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
@@ -17,7 +17,7 @@ class createEventForm(forms.ModelForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email']
+        fields = ['first_name', 'last_name']
 
 
 class UserAdminCreationForm(forms.ModelForm):
