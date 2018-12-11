@@ -18,7 +18,8 @@ urlpatterns = [
     url(r'^myEvents/*$', views.myEvents, name='myEvents'),
     url(r'^explore/*$', views.explore, name='explore'),
                
-    url(r'^editProfile/*$', views.dashboard, name='editProfile'),
+    url(r'^viewProfile/*$', views.dashboard, name='viewProfile'),
+    url(r'^search/*$', views.dashboard, name='search'),
     url(r'^register/$', userCreate ,name ="register"),
     url(r'^createEvent/$', views.createEvent ,name ="createEvent"),
     url(r'^viewEvent/$', userCreate ,name ="viewEvent"),

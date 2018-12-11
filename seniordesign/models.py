@@ -115,8 +115,8 @@ class UserProfile(models.Model):
         ('Junior', 'Junior'),
         ('Senior', 'Senior'),
     )
-    year_in_school = models.CharField(max_length=15, choices=YEAR_IN_SCHOOL_CHOICES, default='Freshman',)
-    myEvents            = models.ManyToManyField(EventProfile)
+    year_in_school      = models.CharField(max_length=15, choices=YEAR_IN_SCHOOL_CHOICES, default='Freshman',)
+    myEvents            = models.ManyToManyField('EventProfile')
 
     
 class EventProfile(models.Model):
