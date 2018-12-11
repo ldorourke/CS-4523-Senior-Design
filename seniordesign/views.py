@@ -5,6 +5,7 @@ from django.shortcuts               import redirect, render
 from django.template                import loader
 from django                         import forms
 from seniordesign.models            import CustomUser, UserProfile, UserManager
+from seniordesign.forms             import createEventForm
 
 from django.views                   import View
 from django.views.generic           import TemplateView, ListView, DetailView, CreateView
@@ -16,6 +17,13 @@ from django.contrib                 import messages
 from django.http                    import HttpResponse, HttpResponseRedirect,HttpRequest
 
 site_hdr = "Senior Design"
+
+class createEventView(TemplateView):
+    template_name = 'createEvent.html'
+
+    def get(self, request):
+        form = createEventForm()
+        
 
 def index(request):
     return render(request, 'index.html', {'header': site_hdr})
