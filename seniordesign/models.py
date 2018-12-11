@@ -128,3 +128,8 @@ class EventProfile(models.Model):
     Location            = models.CharField(max_length = 30)
     distanceFromUser    = models.CharField(max_length = 30)
 
+    attandees           = models.ManyToManyField(UserProfile)
+
+    
+
+
