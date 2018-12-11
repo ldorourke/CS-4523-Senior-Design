@@ -116,4 +116,5 @@ class UserProfile(models.Model):
         ('Senior', 'Senior'),
     )
     year_in_school = models.CharField(max_length=15, choices=YEAR_IN_SCHOOL_CHOICES, default='Freshman',)
-    
+
+

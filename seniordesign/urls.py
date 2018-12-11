@@ -20,7 +20,7 @@ urlpatterns = [
                
     url(r'^editProfile/*$', views.dashboard, name='editProfile'),
     url(r'^register/$', userCreate ,name ="register"),
-    url(r'^createEvent/$', userCreate ,name ="createEvent"),
+    url(r'^createEvent/$', views.createEvent ,name ="createEvent"),
     url(r'^viewEvent/$', userCreate ,name ="viewEvent"),
                
                
