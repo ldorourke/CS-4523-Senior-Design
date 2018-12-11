@@ -6,7 +6,7 @@ from django.forms import ModelForm
 from django.contrib.auth.models import ( AbstractBaseUser, BaseUserManager )
 
 
-
+import datetime
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #Definition needs checking ^
@@ -101,13 +101,13 @@ class CustomUser(AbstractBaseUser):
 
 #Custom User basic profile
 class UserProfile(models.Model):
-    user      		= models.OneToOneField(CustomUser, on_delete=models.CASCADE,)
-    firstName       = models.CharField(max_length = 30)
-    lastName        = models.CharField(max_length = 30)
-    username        = models.CharField(max_length = 30)
-    university      = models.CharField(max_length = 30)
+    user      		    = models.OneToOneField(CustomUser, on_delete=models.CASCADE,)
+    firstName           = models.CharField(max_length = 30)
+    lastName            = models.CharField(max_length = 30)
+    username            = models.CharField(max_length = 30)
+    university          = models.CharField(max_length = 30)
 	#need path to be specified for next line
-    profilePic      = models.ImageField(default = os.path.join(BASE_DIR, "NeedPath") )
+    profilePic          = models.ImageField(default = os.path.join(BASE_DIR, "NeedPath") )
     
     YEAR_IN_SCHOOL_CHOICES = (
         ('Freshman', 'Freshman'),
@@ -117,4 +117,14 @@ class UserProfile(models.Model):
     )
     year_in_school = models.CharField(max_length=15, choices=YEAR_IN_SCHOOL_CHOICES, default='Freshman',)
 
+    
+class EventProfile(models.Model):
+    date                = models.DateField(default=datetime.date.today)
+    tcontact_time       = models.TimeField(default=datetime.time)
+    Location            = models.CharField(max_length = 30)
+    tags                = models.CharField(max_length = 50)
+    Eventname           = models.CharField(max_length = 30)
+    Host                = models.CharField(max_length = 30)
+    Location            = models.CharField(max_length = 30)
+    distanceFromUser    = models.CharField(max_length = 30)
 
