@@ -5,6 +5,8 @@ from django.forms import ModelForm
 
 from django.contrib.auth.models import ( AbstractBaseUser, BaseUserManager )
 
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 
 import datetime
 import os
@@ -22,6 +24,24 @@ class User(models.Model):
 
 
 # we're going to need tables for rooms, courses, professors, and...?
+
+ 
+class uConnectUser(models.Model):
+    user            = models.OneToOneField(User, related_name='user', on_delete = models.CASCADE)
+    photo           = models.ImageField(default = os.path.join(BASE_DIR, "NeedPath") )
+    bio             = models.TextField(default='', blank=True)
+    phone           = models.CharField(max_length=20, blank=True, default='')
+    city            = models.CharField(max_length=100, default='', blank=True)
+    country         = models.CharField(max_length=100, default='', blank=True)
+    organization    = models.CharField(max_length=100, default='', blank=True)
+
+
+def create_profile(sender, **kwargs):
+    user = kwargs["instance"]
+    if kwargs["created"]:
+        user_profile = UserProfile(user=user)
+        user_profile.save()
+post_save.connect(create_profile, sender=User)
 
 
 
@@ -115,7 +135,9 @@ class UserProfile(models.Model):
         ('Junior', 'Junior'),
         ('Senior', 'Senior'),
     )
+
     year_in_school = models.CharField(max_length=15, choices=YEAR_IN_SCHOOL_CHOICES, default='Freshman',)
+    year_in_school      = models.CharField(max_length=15, choices=YEAR_IN_SCHOOL_CHOICES, default='Freshman',)
     myEvents            = models.ManyToManyField('EventProfile')
 
     

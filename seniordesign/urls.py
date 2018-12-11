@@ -18,11 +18,15 @@ urlpatterns = [
     url(r'^myEvents/*$', views.myEvents, name='myEvents'),
     url(r'^explore/*$', views.explore, name='explore'),
                
-    url(r'^editProfile/*$', views.dashboard, name='editProfile'),
+    #url(r'^viewProfile/*$', views.dashboard, name='viewProfile'),
+    url(r'^search/*$', views.dashboard, name='search'),
     url(r'^register/$', userCreate ,name ="register"),
+
     url(r'^createEvent/$', views.createEventView.as_view() ,name ="createEvent"),
     url(r'^viewEvent/$', views.viewEvent ,name ="viewEvent"),
-               
+    
+    url(r'^updateProfile/$', views.editUser, name='updateProfile'),           
+    url(r'^viewProfile/$', views.dashboard, name='viewProfile'),
                
     #The next two need their template names, add the names after the html files are added to proj
     

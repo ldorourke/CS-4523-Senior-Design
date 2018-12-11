@@ -1,11 +1,11 @@
-from django.shortcuts               import render
+from django.shortcuts               import render, HttpResponseRedirect
 from django.http                    import HttpResponse
 from django.core.mail               import EmailMessage
 from django.shortcuts               import redirect, render
 from django.template                import loader
 from django                         import forms
-from seniordesign.models            import CustomUser, UserProfile, UserManager
-from seniordesign.forms             import createEventForm
+from seniordesign.models            import CustomUser, UserProfile, UserManager, uConnectUser
+from seniordesign.forms             import createEventForm, UserForm
 
 from django.views                   import View
 from django.views.generic           import TemplateView, ListView, DetailView, CreateView
@@ -15,8 +15,14 @@ from django.contrib.auth.mixins     import LoginRequiredMixin
 from django.db.models               import Q
 from django.contrib                 import messages
 from django.http                    import HttpResponse, HttpResponseRedirect,HttpRequest
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models     import User
+from django.forms.models            import inlineformset_factory
+from django.core.exceptions         import PermissionDenied
 
 site_hdr = "uConnect"
+
+
 
 class createEventView(TemplateView):
     def __init__(self):
@@ -72,6 +78,37 @@ def isPasswordValid(password):
     else:
         return False
 
+
+@login_required
+def editUser(request):
+    
+    user_form = UserForm(instance=request.user)
+ 
+    ProfileInlineFormset = inlineformset_factory(User, uConnectUser, fields=('bio', 'phone', 'city', 'country', 'organization'))
+    formset = ProfileInlineFormset(instance=request.user)
+ 
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            user_form = UserForm(request.POST, request.FILES, instance=request.user)
+            formset = ProfileInlineFormset(request.POST, request.FILES, instance=request.user)
+ 
+            if user_form.is_valid():
+                created_user = user_form.save(commit=False)
+                formset = ProfileInlineFormset(request.POST, request.FILES, instance=created_user)
+ 
+                if formset.is_valid():
+                    created_user.save()
+                    formset.save()
+                    return HttpResponseRedirect('/viewProfile/')
+ 
+        return render(request, "account/updateProfile.html", {
+            "noodle": request.user,
+            "noodle_form": user_form,
+            "formset": formset,
+        })
+    else:
+        raise PermissionDenied
+ 
 
 
 def userCreate(request):
