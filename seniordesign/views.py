@@ -20,6 +20,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models     import User
 from django.forms.models            import inlineformset_factory
 from django.core.exceptions         import PermissionDenied
+import os
 
 site_hdr = "Senior Design"
 
@@ -63,13 +64,16 @@ def isPasswordValid(password):
     else:
         return False
 
+@login_required        
+def viewProfile(request):
+    return render(request, 'account/viewProfile.html', {'header': site_hdr})
 
 @login_required
 def editUser(request):
-    
+    print(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     user_form = UserForm(instance=request.user)
  
-    ProfileInlineFormset = inlineformset_factory(User, uConnectUser, fields=('bio', 'phone', 'city', 'country', 'organization'))
+    ProfileInlineFormset = inlineformset_factory(User, uConnectUser, fields=('username', 'university', 'year_in_school'))
     formset = ProfileInlineFormset(instance=request.user)
  
     if request.user.is_authenticated:
@@ -85,6 +89,9 @@ def editUser(request):
                     created_user.save()
                     formset.save()
                     return HttpResponseRedirect('/viewProfile/')
+
+            else:
+                print("HI")
  
         return render(request, "account/updateProfile.html", {
             "noodle": request.user,

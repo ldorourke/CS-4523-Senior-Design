@@ -27,13 +27,18 @@ class User(models.Model):
 
  
 class uConnectUser(models.Model):
-    user            = models.OneToOneField(User, related_name='user', on_delete = models.CASCADE)
-    photo           = models.ImageField(default = os.path.join(BASE_DIR, "NeedPath") )
-    bio             = models.TextField(default='', blank=True)
-    phone           = models.CharField(max_length=20, blank=True, default='')
-    city            = models.CharField(max_length=100, default='', blank=True)
-    country         = models.CharField(max_length=100, default='', blank=True)
-    organization    = models.CharField(max_length=100, default='', blank=True)
+    user                = models.OneToOneField(User, related_name='user', on_delete = models.CASCADE)
+    username            = models.CharField(max_length = 30, default = '')
+    university          = models.CharField(max_length = 30, default = 'NYU')
+
+    YEAR_IN_SCHOOL_CHOICES = (
+        ('Freshman', 'Freshman'),
+        ('Sophomore', 'Sophomore'),
+        ('Junior', 'Junior'),
+        ('Senior', 'Senior'),
+    )
+    year_in_school      = models.CharField(max_length=15, choices=YEAR_IN_SCHOOL_CHOICES, default='Freshman',)
+    myEvents            = models.ManyToManyField('EventProfile')
 
 
 def create_profile(sender, **kwargs):
