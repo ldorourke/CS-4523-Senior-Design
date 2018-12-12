@@ -53,10 +53,20 @@ def dashboard(request):
     return render(request, 'dashboard.html', {'header': site_hdr})
 
 def myEvents(request):
+    queryset = uConnectUser.objects.filter(user = request.user)
+    for user in queryset:
+        print(user.myEvents.all())
     return render(request, 'myEvents.html', {'header': site_hdr})
 
 def explore(request):
-    return render(request, 'explore.html', {'header': site_hdr})
+    queryset = EventProfile.objects.all().values()
+    topEvents = []
+    for e in queryset:
+        if e['id'] > 7:
+            print(e)
+            topEvents.append(e['Eventname'])
+    #topEvents.append(e.values())
+    return render(request, 'explore.html', {'header': site_hdr, 'topEvents': topEvents})
 
 def viewEvent(request):
     return render(request, 'viewEvent.html', {'header': site_hdr})

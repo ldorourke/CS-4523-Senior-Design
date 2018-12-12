@@ -3,7 +3,31 @@
 {% block content %}
 
 {% load static %}
-
+<div class="container">
+    <div class="row" style="margin-top:150px;" >
+        {% for event in topEvents %}
+        <div class="col">
+            <div style = "color:#439DBB;text-align: center;">
+                <a class ="main_page" href =  "/viewEvent">
+                {% if forloop.counter == 1 %}
+                <img src = "{% static "seniordesign/party.jpg" %}" height="180px" width="auto">
+                {% endif%}
+                {% if forloop.counter == 2 %}
+                <img src = "{% static "seniordesign/runninng.jpg" %}" height="180px" width="auto">
+                {% endif%}
+                {% if forloop.counter == 3 %}
+                <img src = "{% static "seniordesign/gt.jpg" %}" height="180px" width="auto">
+                {% endif%}
+                    <div style = "margin-top:50px;">
+                        <h3>{{event}}</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!--
 <div class="container">
         <div class="row" style="margin-top:150px;" >
             <div class="col">
@@ -39,7 +63,7 @@
             </div>
         </div>
     </div>
-
+-->
     <div class = "container">
         <h6>More Events: </h6>
             <table class="table" style = "background-color:white;">
