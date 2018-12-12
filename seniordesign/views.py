@@ -37,9 +37,9 @@ class createEventView(TemplateView):
         form = createEventForm(request.POST)
         if form.is_valid():
             form.save()
-            text = form.cleaned_data['post']
+            #text = form.cleaned_data['POST']
             form = createEventForm()
-            return redirect('seniordesign:createEvent')
+            return redirect('seniordesign:viewEvent')
 
         args = {'form':form, 'text': text}
         return render(request, self.template_name, args)

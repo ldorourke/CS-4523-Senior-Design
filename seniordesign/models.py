@@ -155,7 +155,7 @@ class EventProfile(models.Model):
     Host                = models.CharField(max_length = 30)
     Location            = models.CharField(max_length = 30)
     distanceFromUser    = models.CharField(max_length = 30)
-    attendees           = models.ManyToManyField(UserProfile)
+    #attendees           = models.ManyToManyField(UserProfile)
 
     
 

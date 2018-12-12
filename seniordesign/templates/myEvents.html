@@ -13,12 +13,86 @@
           <p> This will be a list of events within the db: </p>
           <p>Add a filter to show user created events vs user joined events</p>
           <ul>
-            <li> Event 1 </li>
-            <li> Event 2 </li>
-            <li> Event 3 </li>
-            <li> Event 4 </li>
+            <li><a href = "/viewEvent"> Event Hosted By ME </a></li>
+            <li><a href = "/viewEvent"> Event Hosted By ME </a></li>
+            <li><a href = "/viewEvent"> Event Hosted By Some1 Else </a></li>
+            <li><a href = "/viewEvent"> Event Hosted By Some2 Else </a></li>
           </ul>
         </div>
 </div>
+
+<script>
+
+$(document).ready(function(){
+  $("td:nth-child(4)").each(function(index){
+      if ($(this).text() == 1) {
+      $(this).parent().css('background-color','lightgreen');
+    }
+});
+});
+
+
+function changeClickAction(){
+document.getElementById("exampleCheck1").onclick = reverseFiltertoAllClients;
+}
+
+function filtertoActiveClients(){
+document.getElementById("exampleCheck2").checked = false;
+var table = document.getElementById("clientTable");
+ var tr = table.getElementsByTagName("tr");
+
+for (i = 0; i< tr.length; i++){
+  tableData = tr[i].getElementsByTagName("td")[2];
+  if (tableData){
+    if (tableData.innerHTML== '0'){
+      tr[i].style.display = "none";
+    }
+    else{
+      tr[i].style.display = "";
+    }
+  }
+}
+document.getElementById("exampleCheck1").onclick = reverseFiltertoAllClients;
+
+}
+
+
+
+function reverseFiltertoAllClients(){
+var table = document.getElementById("clientTable");
+ var tr = table.getElementsByTagName("tr");
+
+for (i = 0; i< tr.length; i++){
+  tr[i].style.display = "";
+}
+document.getElementById("exampleCheck1").onclick = filtertoActiveClients;
+document.getElementById("exampleCheck2").onclick = filtertoUnassignedMailboxes;
+document.getElementById("exampleCheck2").checked = false;
+document.getElementById("exampleCheck1").checked = false;
+
+}
+
+function filtertoUnassignedMailboxes() {
+reverseFiltertoAllClients();
+document.getElementById("exampleCheck2").checked = true;
+document.getElementById("exampleCheck1").checked = false;
+var table = document.getElementById("clientTable");
+ var tr = table.getElementsByTagName("tr");
+
+for (i = 0; i< tr.length; i++){
+  tableData = tr[i].getElementsByTagName("td")[1];
+  if (tableData){
+    if (tableData.innerHTML== 'Unassigned'){
+      tr[i].style.display = "";
+    }
+    else{
+        tr[i].style.display = "none";
+    }
+  }
+}
+document.getElementById("exampleCheck2").onclick = reverseFiltertoAllClients;
+}
+</script> 
+
       
 {% endblock content %}
