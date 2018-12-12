@@ -79,13 +79,34 @@ def isPasswordValid(password):
     else:
         return False
 
-@login_required        
+
+
+
+#@login_required        
+'''
+class AccountDetailView(LoginRequiredMixin, ListView):
+    def __init__(self):
+        self.template_name= 'account/viewProfile.html'
+
+    def get_queryset(self):
+        queryset = uConnectUser.objects.filter(user = self.request.user)
+        print(queryset)
+        return render(self.request, 'account/viewProfile.html', {'header': site_hdr, 'queryset': queryset})
+        #return render(request, 'account/viewProfile.html', {'header': site_hdr, 'queryset': queryset})
+'''
+@login_required  
 def viewProfile(request):
-    return render(request, 'account/viewProfile.html', {'header': site_hdr})
+    queryset = uConnectUser.objects.filter(user = request.user)
+    return render(request, 'account/viewProfile.html', {'header': site_hdr, 
+                                                        'FirstName': queryset[0].user.first_name,
+                                                        'LastName': queryset[0].user.last_name,
+                                                        'username': queryset[0].username, 
+                                                        'uni':queryset[0].university, 
+                                                        'year_in_school':queryset[0].year_in_school })
+
 
 @login_required
 def editUser(request):
-    print(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     user_form = UserForm(instance=request.user)
  
     ProfileInlineFormset = inlineformset_factory(User, uConnectUser, fields=('username', 'university', 'year_in_school'))

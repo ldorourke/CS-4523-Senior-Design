@@ -4,6 +4,7 @@ from django.conf.urls import url
 from . import views
 from django.contrib.auth.views import LoginView
 
+
 from seniordesign.views import * #(index, logout_view, userCreate)
 
 
@@ -28,7 +29,7 @@ urlpatterns = [
     url(r'^updateProfile/$', views.editUser, name='updateProfile'),           
 
     url(r'^viewProfile/$', views.viewProfile, name='viewProfile'),           
-
+    #url(r'^viewProfile/$', views.AccountDetailView.as_view() ,name='viewProfile'),
                
     #The next two need their template names, add the names after the html files are added to proj
     

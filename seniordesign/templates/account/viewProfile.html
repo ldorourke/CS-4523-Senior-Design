@@ -2,7 +2,22 @@
 
 {% block content %}
 
-<p> hi </p>
+
+<div class="col s12 m8 offset-m2">
+      <div class="card">
+        <div class="card-content">
+        <h2 class="flow-text">Your information</h2>
+        <div class = "container-fluid">
+         	<h6> Name : {{FirstName}} {{LastName}} </h6>
+			<h6> Username : {{username}}  </h6> 
+			<h6> University : {{uni}} </h6> 
+			<h6> Year : {{year_in_school}} </h6> 
+		</div>
+        </div>
+    </div>
+</div>
+
+
 
 
 <form action="/updateProfile">
