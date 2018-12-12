@@ -1,5 +1,6 @@
 
 {% block content %}
+{% load static %}
 <meta charset = "utf-8">
             <meta name = "viewport" content="width=device-width, initial-scale=1">
                 
@@ -61,11 +62,10 @@
                        src: url("{% static 'caviar_dreams/CaviarDreams.ttf' %}");
                      }
                         </style>
-    <h1>uConnect</h1>
+<body style="background-color:#7386D5;"> </body>
     <div class = "jumbotron" style="background-color: #439DBB0A;margin-bottom:0px;text-align: center;">
-        <h1 class = "welcome_splash">Welcome to university Connect!</h1>
+        <h1 class = "welcome_splash">Welcome to uConnect!</h1>
     </div>
-
     <div style = "background-color:#439DBB0A;width:50%;margin:auto;border-radius:5px;">
         <form method = "POST"  > {% csrf_token %}
     <div class = "container" style="margin-bottom:10px;clear:left;text-align:center;">
@@ -84,19 +84,23 @@
         </div>
         
        <div style = "width:100%;max-width:300px;border-radius:15px;background-color:#439DBB9F;color:white;margin-left:25%;">{{ form.password }}</div>
-       <label for="passwordInput">Password</label>  
+       <label for="passwordInput">Password     </label>  
        <input type = "password" id="passwordInput" name = "password" style = "width:100%;max-width:300px;border-radius:15px;background-color:#439DBB9F;color:white;">
             
     </div>
         
 
         <div style="text-align:center;">
+
             <div style = "margin-bottom:10px;">
             <button type= "submit"class="btn btn-link" onclick="location.href = '/homePage'" style="color:white;  border:1px solid; border-radius: 15px;font-family: 'CaviarDreams';">Login</button>
             <input type="hidden" name="next" value="/logged_in/" />
             </div>
             <a id = "forgotPassword" class= "main_page" style="color:white;font-family: 'CaviarDreams';">Forgot your password?</a><br>
             <a id = "createAccount" class= "main_page" data-toggle = "modal" data-target="#myModal" style="color:white;font-family: 'CaviarDreams';">Don't have an account? Create one right now!</a>
+        </div>
+        <div style="text-align:center;">
+            <img src="{% static "seniordesign/WashingtonSquarePark.png" %}" alt="wsp" align = "center" style="width:500px;height:350px;"
         </div>
     </form>
     </div>
@@ -178,6 +182,8 @@
             </div>
         </div>
     </div>
+
+
 
 {% endblock content %}
 
