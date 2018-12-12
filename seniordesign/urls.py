@@ -25,6 +25,10 @@ urlpatterns = [
 
     url(r'^createEvent/$', views.createEventView.as_view() ,name ="createEvent"),
     url(r'^viewEvent/$', views.viewEvent ,name ="viewEvent"),
+    url(r'^viewEvent2/$', views.viewEvent2 ,name ="viewEvent2"),
+    url(r'^viewEvent3/$', views.viewEvent3 ,name ="viewEvent3"),
+    url(r'^viewEvent4/$', views.viewEvent4 ,name ="viewEvent4"),
+               
     
     url(r'^updateProfile/$', views.editUser, name='updateProfile'),           
 

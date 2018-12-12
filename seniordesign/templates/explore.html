@@ -4,7 +4,8 @@
 
 {% load static %}
 <div class="container">
-    <div class="row" style="margin-top:150px;" >
+    <h2>Events Near You:</h2>
+    <div class="row" style="margin-top:75px;" >
         {% for event in topEvents %}
         <div class="col">
             <div style = "color:#439DBB;text-align: center;">
@@ -16,7 +17,7 @@
                 <img src = "{% static "seniordesign/runninng.jpg" %}" height="180px" width="auto">
                 {% endif%}
                 {% if forloop.counter == 3 %}
-                <img src = "{% static "seniordesign/gt.jpg" %}" height="180px" width="auto">
+                <img src = "{% static "seniordesign/gt.jpg" %}" height="180px" width="300px">
                 {% endif%}
                     <div style = "margin-top:50px;">
                         <h3>{{event}}</h3>

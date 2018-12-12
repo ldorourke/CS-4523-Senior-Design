@@ -71,6 +71,15 @@ def explore(request):
 def viewEvent(request):
     return render(request, 'viewEvent.html', {'header': site_hdr})
 
+def viewEvent2(request):
+    return render(request, 'viewEvent2.html', {'header': site_hdr})
+
+def viewEvent3(request):
+    return render(request, 'viewEvent3.html', {'header': site_hdr})
+
+def viewEvent4(request):
+    return render(request, 'viewEvent4.html', {'header': site_hdr})
+
 def logout_view(request):
     logout(request)
     return redirect('login')
