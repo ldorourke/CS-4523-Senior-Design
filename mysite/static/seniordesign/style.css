@@ -108,17 +108,18 @@ code {
     padding-bottom: 2em;
     padding-top: .2em;
     line-height: 2em;
-    background-color: #cbe;
+    background-color: #7386D5;
     color: #633;
     text-align: center;
 
 }
 
 #header a:link, #header a:visited {
-    color: #622;
+    color: #ffffff;
 }
 
 #header a:focus , #header a:hover {
+    text-align: left;
     text-decoration: underline;
 }
 
