@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^explore/*$', views.explore, name='explore'),
                
     #url(r'^viewProfile/*$', views.dashboard, name='viewProfile'),
-    url(r'^search/*$', views.dashboard, name='search'),
+    #url(r'^search/*$', views.dashboard, name='search'),
     url(r'^register/$', userCreate ,name ="register"),
 
     url(r'^createEvent/$', views.createEventView.as_view() ,name ="createEvent"),
@@ -28,7 +28,8 @@ urlpatterns = [
     
     url(r'^updateProfile/$', views.editUser, name='updateProfile'),           
 
-    url(r'^viewProfile/$', views.viewProfile, name='viewProfile'),           
+    url(r'^viewProfile/$', views.viewProfile, name='viewProfile'),  
+    url(r'^search/$', views.search, name='search'),      
     #url(r'^viewProfile/$', views.AccountDetailView.as_view() ,name='viewProfile'),
                
     #The next two need their template names, add the names after the html files are added to proj

@@ -4,7 +4,7 @@ from django.core.mail               import EmailMessage
 from django.shortcuts               import redirect, render
 from django.template                import loader
 from django                         import forms
-from seniordesign.models            import CustomUser, UserProfile, UserManager, uConnectUser
+from seniordesign.models            import CustomUser, UserProfile, UserManager, uConnectUser, EventProfile
 from seniordesign.forms             import createEventForm, UserForm
 
 from django.views                   import View
@@ -126,8 +126,6 @@ def editUser(request):
                     formset.save()
                     return HttpResponseRedirect('/viewProfile/')
 
-            else:
-                print("HI")
  
         return render(request, "account/updateProfile.html", {
             "noodle": request.user,
@@ -138,6 +136,28 @@ def editUser(request):
         raise PermissionDenied
  
 
+@login_required
+def search(request):
+    searchQuery = request.GET['search']
+    allEvents = EventProfile.objects.all()
+    returnEvents = []
+
+    #check matching tags
+    for event in allEvents:
+        allTags = event.tags
+        if searchQuery in allTags:
+            returnEvents.append(event)
+
+    #format output
+    returnedOutput = {}
+    returnedOutput['header'] = site_hdr
+    resultEvents = []
+    for event in returnEvents:
+        resultEvents.append(event)
+    returnedOutput['allEvents'] = resultEvents
+
+    #render the resulting page
+    return render(request, "search.html", returnedOutput)
 
 def userCreate(request):
     if request.method == 'POST':

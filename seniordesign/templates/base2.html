@@ -10,7 +10,7 @@
         {% load static %}
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
         
-       
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="/static/seniordesign/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     {% endblock stylesheets %}
@@ -21,9 +21,14 @@
 	    <div id="user-tools">
                 <a href="/homePage">Home</a>
                 &nbsp; &nbsp; 
-                <a href="/search">Search Events</a>
-                &nbsp; &nbsp; 
                 <a href="/viewProfile">View Profile</a>
+                &nbsp; &nbsp;
+
+                <form class="example" action="/search">
+                  <input type="text" placeholder="Search.." name="search">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+          
             </div>
             <div>
                 <a href = "/homePage"><h1>uConnect</h1></a>

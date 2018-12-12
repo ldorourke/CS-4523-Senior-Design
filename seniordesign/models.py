@@ -30,7 +30,7 @@ class uConnectUser(models.Model):
     user                = models.OneToOneField(User, related_name='user', on_delete = models.CASCADE)
     username            = models.CharField(max_length = 30, default = '')
     university          = models.CharField(max_length = 30, default = 'NYU')
-
+    
     YEAR_IN_SCHOOL_CHOICES = (
         ('Freshman', 'Freshman'),
         ('Sophomore', 'Sophomore'),

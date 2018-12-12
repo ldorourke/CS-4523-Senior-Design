@@ -92,7 +92,7 @@
 
         <div style="text-align:center;">
             <div style = "margin-bottom:10px;">
-            <button type= "submit" class="btn btn-link" style="color:white;  border:1px solid; border-radius: 15px;font-family: 'CaviarDreams';">Login</button>
+            <button type= "submit"class="btn btn-link" onclick="location.href = '/homePage'" style="color:white;  border:1px solid; border-radius: 15px;font-family: 'CaviarDreams';">Login</button>
             <input type="hidden" name="next" value="/logged_in/" />
             </div>
             <a id = "forgotPassword" class= "main_page" style="color:white;font-family: 'CaviarDreams';">Forgot your password?</a><br>
@@ -179,5 +179,11 @@
         </div>
     </div>
 
-
 {% endblock content %}
+
+
+<script type="text/javascript">
+    document.getElementById("loginButton").onclick = function () {
+        location.href = "homePage";
+    };
+</script>
